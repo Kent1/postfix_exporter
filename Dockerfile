@@ -18,6 +18,10 @@ RUN go test
 RUN go build -o /bin/postfix_exporter
 
 FROM debian:latest
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get upgrade -y
+
 EXPOSE 9154
 WORKDIR /
 COPY --from=builder /bin/postfix_exporter /bin/
