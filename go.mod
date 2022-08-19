@@ -12,7 +12,8 @@ require (
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/nxadm/tail v1.4.8
 	github.com/opencontainers/go-digest v1.0.0 // indirect
-	github.com/prometheus/client_golang v1.4.1
+	github.com/prometheus/client_golang v1.13.0
 	github.com/prometheus/client_model v0.2.0
 	github.com/stretchr/testify v1.4.0
+	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
 )
