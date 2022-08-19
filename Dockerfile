@@ -19,9 +19,9 @@ ENV GOARCH=amd64
 RUN go test
 RUN CGO_ENABLED=0 go build -a -tags nosystemd -o /bin/postfix_exporter .
 
-FROM gcr.io/distroless/static:nonroot
+ARG ALPINE_VERSION=3.16.2
+FROM alpine:${ALPINE_VERSION}
 EXPOSE 9154
 WORKDIR /
 COPY --from=builder /bin/postfix_exporter /bin/
-USER nonroot:nonroot
 ENTRYPOINT ["/bin/postfix_exporter"]
