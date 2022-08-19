@@ -19,8 +19,7 @@ ENV GOARCH=amd64
 RUN go test
 RUN CGO_ENABLED=0 go build -a -tags nosystemd -o /bin/postfix_exporter .
 
-ARG ALPINE_VERSION=3.16.2
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:3.16.2
 EXPOSE 9154
 WORKDIR /
 COPY --from=builder /bin/postfix_exporter /bin/
